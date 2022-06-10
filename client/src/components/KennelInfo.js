@@ -1,14 +1,14 @@
 import React from 'react';
 import { useState } from 'react';
 
-function KennelInfo({ kennelInfo, setInfo }) {
+function KennelInfo({ kennelInfo, setKennelInfo, setInfo }) {
 	return (
 		<div className="kennelInfo">
 			You clicked:
 			<section className="mainInfo">
 				<button
 					onClick={() => {
-						setInfo(true);
+						setInfo(false);
 					}}
 				>
 					X

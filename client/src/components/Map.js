@@ -13,6 +13,7 @@ function Map() {
 	const [location, setLocation] = useState(null);
 	const [kennelList, setKennelList] = useState([]);
 	const [kennelInfo, setKennelInfo] = useState({});
+	const [mainKennList, setmainKennelList] = useState([]);
 
 	const [info, setInfo] = useState(false);
 
@@ -21,6 +22,7 @@ function Map() {
 		console.log(data);
 		setKennelList(data);
 		setKennelInfo(data);
+		setmainKennelList(data);
 	};
 
 	useEffect(() => {
@@ -91,12 +93,17 @@ function Map() {
 			</MapContainer>
 
 			{info && (
-				<KennelInfo kennelInfo={kennelInfo} setKennelInfo={setKennelInfo} />
+				<KennelInfo
+					kennelInfo={kennelInfo}
+					setInfo={setInfo}
+					setKennelInfo={setKennelInfo}
+				/>
 			)}
 
 			<SearchBar
 				kennelList={kennelList}
 				setKennelList={setKennelList}
+				mainKennList={mainKennList}
 			></SearchBar>
 		</div>
 	) : (
