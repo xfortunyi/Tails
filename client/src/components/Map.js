@@ -8,6 +8,7 @@ import kennelsPos from '../assets/pngwing.com.png';
 import 'leaflet/dist/leaflet.css';
 import KennelInfo from './KennelInfo';
 import SearchBar from './SearchBar';
+import Loader from './Loader';
 
 function Map() {
 	const [location, setLocation] = useState(null);
@@ -107,7 +108,7 @@ function Map() {
 			></SearchBar>
 		</div>
 	) : (
-		<div>Loading...</div>
+		<Loader />
 	);
 }
 

@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { createKennel } from '../services/apiService';
 
 function Register() {
@@ -89,9 +90,15 @@ function Register() {
 					name="latitude"
 					placeholder="Insert a latitude..."
 				></input>
-				<button className="btn" type="submit">
-					Create new Kennel
-				</button>
+				<Link
+					to={{
+						pathname: '/profile',
+					}}
+				>
+					<button className="btn" type="submit">
+						Create new Kennel
+					</button>
+				</Link>
 			</div>
 		</form>
 	);

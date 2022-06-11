@@ -25,50 +25,62 @@ function Main() {
 	}, []);
 
 	return (
-		<>
-			<div>Looking for a new best friend?</div>
-
-			<Link
-				to={{
-					pathname: '/map',
-					location: location,
-				}}
-			>
-				<button>Let's go!</button>
-			</Link>
+		<div className="mainContainer">
+			<h1 className="title">Tails</h1>
+			<p className="description">
+				Many dogs are looking for a second chance. <br></br> Do you want a new
+				best friend?
+			</p>
+			<div className="mapPath">
+				<Link
+					to={{
+						pathname: '/map',
+						location: location,
+					}}
+				>
+					<button className="btnGo">
+						Let's go!
+						<div className="arrowContainer">
+							<div className="arrow"></div>
+						</div>
+					</button>
+				</Link>
+			</div>
 
 			<section className="KennelSection">
-				<h2 className="title_Kennel">Are you a Kennel?</h2>
-				<Link
-					to={{
-						pathname: '/login',
-					}}
-				>
-					<button
-						className="loginBtn"
+				<h3 className="title_Kennel">Are you a Kennel?</h3>
+				<div className="btnSection">
+					<Link
+						to={{
+							pathname: '/login',
+						}}
+					>
+						<button
+							className="loginBtn"
+							// onClick={(e) => {
+							// 	handleClick('login');
+							// }}
+						>
+							Login
+						</button>
+					</Link>
+					<Link
+						to={{
+							pathname: '/register',
+						}}
+					>
+						<button
+						// className="registerBtn"
 						// onClick={(e) => {
-						// 	handleClick('login');
+						// 	handleClick('register');
 						// }}
-					>
-						Login
-					</button>
-				</Link>
-				<Link
-					to={{
-						pathname: '/register',
-					}}
-				>
-					<button
-					// className="registerBtn"
-					// onClick={(e) => {
-					// 	handleClick('register');
-					// }}
-					>
-						Register
-					</button>
-				</Link>
+						>
+							Register
+						</button>
+					</Link>
+				</div>
 			</section>
-		</>
+		</div>
 	);
 }
 

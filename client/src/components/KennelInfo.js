@@ -1,5 +1,6 @@
 import React from 'react';
 import { useState } from 'react';
+import { Link } from 'react-router-dom';
 
 function KennelInfo({ kennelInfo, setKennelInfo, setInfo }) {
 	return (
@@ -7,6 +8,7 @@ function KennelInfo({ kennelInfo, setKennelInfo, setInfo }) {
 			You clicked:
 			<section className="mainInfo">
 				<button
+					className="btnCancel"
 					onClick={() => {
 						setInfo(false);
 					}}
@@ -34,7 +36,13 @@ function KennelInfo({ kennelInfo, setKennelInfo, setInfo }) {
 						))}
 					</div>
 				</>
-				<button className="btnContact">Contact Us</button>
+				<Link
+					to={{
+						pathname: `/profile/${kennelInfo.id}`,
+					}}
+				>
+					<button className="btnContact">Contact Us</button>
+				</Link>
 			</section>
 		</div>
 	);
