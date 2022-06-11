@@ -1,5 +1,7 @@
 import React from 'react';
 import { useState } from 'react';
+import resetIcon1 from './../assets/resetIcon1.png';
+import searchIcon from './../assets/searchIcon.png';
 
 function SearchBar({ kennelList, setKennelList, mainKennList }) {
 	const [searchbar, setSearchBar] = useState('');
@@ -37,18 +39,22 @@ function SearchBar({ kennelList, setKennelList, mainKennList }) {
 	};
 
 	return (
-		<div>
-			<input
-				type="text"
-				placeholder="Filter by breed, size or age"
-				onChange={(e) => handleChange(e.target.value)}
-			/>
-			<button onClick={() => SubmitForm()} className="btnSearch">
-				Search
-			</button>
-			<button onClick={() => Reset()} className="btnReset">
-				Reset
-			</button>
+		<div className="searchBar">
+			<div className="searchCont">
+				<input
+					className="inputs"
+					type="text"
+					placeholder="Filter by breed..."
+					onChange={(e) => handleChange(e.target.value)}
+				/>
+				<div className="searchBtn" onClick={() => SubmitForm()}>
+					<img src={searchIcon} />
+				</div>
+			</div>
+
+			<div className="resetBtn" onClick={() => Reset()}>
+				<img src={resetIcon1} />
+			</div>
 		</div>
 	);
 }

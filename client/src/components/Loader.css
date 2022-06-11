@@ -1,16 +1,13 @@
 /* From uiverse.io by @abrahamcalsin */
 .dot-spinner {
-	--uib-size: 2.8rem;
-	--uib-speed: 0.9s;
-	--uib-color: #363062;
 	position: relative;
 	display: flex;
 	margin-top: 20%;
 	margin-left: 50%;
 	align-items: center;
 	justify-content: flex-start;
-	height: var(--uib-size);
-	width: var(--uib-size);
+	height: 2.8rem;
+	width: 2.8rem;
 }
 
 .dot-spinner__dot {
@@ -29,11 +26,10 @@
 	height: 20%;
 	width: 20%;
 	border-radius: 50%;
-	background-color: var(--uib-color);
+	background-color: #363062;
 	transform: scale(0);
 	opacity: 0.5;
-	animation: pulse0112 calc(var(--uib-speed) * 1.111) ease-in-out infinite;
-	box-shadow: 0 0 20px rgba(18, 31, 53, 0.3);
+	animation: pulse0112 calc(0.9s * 1.111) ease-in-out infinite;
 }
 
 .dot-spinner__dot:nth-child(2) {
@@ -41,7 +37,7 @@
 }
 
 .dot-spinner__dot:nth-child(2)::before {
-	animation-delay: calc(var(--uib-speed) * -0.875);
+	animation-delay: calc(0.9s * -0.875);
 }
 
 .dot-spinner__dot:nth-child(3) {
@@ -49,7 +45,7 @@
 }
 
 .dot-spinner__dot:nth-child(3)::before {
-	animation-delay: calc(var(--uib-speed) * -0.75);
+	animation-delay: calc(0.9s * -0.75);
 }
 
 .dot-spinner__dot:nth-child(4) {
@@ -57,7 +53,7 @@
 }
 
 .dot-spinner__dot:nth-child(4)::before {
-	animation-delay: calc(var(--uib-speed) * -0.625);
+	animation-delay: calc(0.9s * -0.625);
 }
 
 .dot-spinner__dot:nth-child(5) {
@@ -65,7 +61,7 @@
 }
 
 .dot-spinner__dot:nth-child(5)::before {
-	animation-delay: calc(var(--uib-speed) * -0.5);
+	animation-delay: calc(0.9s * -0.5);
 }
 
 .dot-spinner__dot:nth-child(6) {
@@ -73,7 +69,7 @@
 }
 
 .dot-spinner__dot:nth-child(6)::before {
-	animation-delay: calc(var(--uib-speed) * -0.375);
+	animation-delay: calc(0.9s * -0.375);
 }
 
 .dot-spinner__dot:nth-child(7) {
@@ -81,7 +77,7 @@
 }
 
 .dot-spinner__dot:nth-child(7)::before {
-	animation-delay: calc(var(--uib-speed) * -0.25);
+	animation-delay: calc(0.9s * -0.25);
 }
 
 .dot-spinner__dot:nth-child(8) {
@@ -89,7 +85,7 @@
 }
 
 .dot-spinner__dot:nth-child(8)::before {
-	animation-delay: calc(var(--uib-speed) * -0.125);
+	animation-delay: calc(0.9s * -0.125);
 }
 
 @keyframes pulse0112 {

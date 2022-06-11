@@ -97,11 +97,34 @@
 	right: 0;
 }
 
+/* Main page pictures */
+.dogPicture {
+	opacity: 0.2;
+	position: absolute;
+	top: -5%;
+	left: 10%;
+	height: 90%;
+}
+
+.dogPicture1 {
+	opacity: 0.2;
+	position: absolute;
+	top: 35%;
+	left: 65%;
+	height: 50%;
+}
+
+.wrapper {
+	position: relative;
+	height: 90vh;
+}
+
 /* kennel section */
+
 .KennelSection {
 	margin-top: 10%;
-	border: 5px solid #363062;
-	border-radius: 15px;
+	/* border: 5px solid #363062;
+	border-radius: 15px; */
 	padding: 1%;
 	display: flex;
 	flex-direction: column;
@@ -109,61 +132,283 @@
 }
 
 .title_Kennel {
+	font-size: 1.2rem;
+	color: #363062;
+}
+
+.btnSection {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-around;
+	align-items: center;
+	width: 12vw;
+}
+
+.loginBtn {
+	text-decoration: none;
+	height: 3vh;
+	width: 5vw;
+	border: 1px solid #363062;
+	border-radius: 5px;
+	background: rgb(255, 255, 255);
+	color: #363062;
+	padding: 1%;
+	padding-right: 14px;
+	padding-left: 12px;
 	font-size: 1rem;
+}
+.loginBtn:hover {
+	background-color: #363062;
+	color: white;
+	border: 1px solid #363062;
+}
+
+.registerBtn {
+	margin-right: 0.5%;
+	cursor: pointer;
+	height: 3vh;
+	width: 5vw;
+	border: 1px solid #363062;
+	border-radius: 5px;
+	background: rgb(255, 255, 255);
+	color: #363062;
+	padding: 1%;
+	padding-right: 14px;
+	padding-left: 12px;
+	font-size: 1rem;
+}
+
+.registerBtn:hover {
+	background-color: #363062;
+	color: white;
+	border: 1px solid #363062;
 }
 
 /* Register Form */
 
+.steps {
+	opacity: 0.2;
+	position: absolute;
+	top: 5%;
+	left: 10%;
+	height: 80%;
+}
+
+.steps1 {
+	opacity: 0.2;
+	position: absolute;
+	top: 20%;
+	left: 75%;
+	height: 80%;
+}
 .registerForm {
 	display: flex;
+
 	margin: auto;
-	border: 1px solid red;
-	height: 60vh;
+	/* border: 1px solid red; */
+	height: 81vh;
 	width: 60vh;
 	padding: 5%;
 }
 
 .container {
-	border: 1px solid blue;
+	/* border: 1px solid blue; */
 	display: flex;
 	flex-direction: column;
 	justify-content: space-between;
 	width: 100%;
+	height: 80vh;
 	padding: 2%;
 }
 
+.inputs {
+	margin-top: 1%;
+	border: #363062 2px solid;
+	border-radius: 5px;
+	height: 1.5rem;
+	text-align: center;
+}
+
 .labels {
+	color: #363062;
 	font-weight: bold;
+	margin-top: 3%;
+}
+
+.btnNewKennel {
+	cursor: pointer;
+	text-decoration: none;
+	margin-right: 0.5%;
+	margin-top: 2%;
+	margin-left: 35%;
+	height: 3vh;
+	width: 8vw;
+	border: 2px solid #363062;
+	border-radius: 5px;
+	background: rgb(255, 255, 255);
+	color: #363062;
+	padding: 1%;
+	padding-right: 14px;
+	padding-left: 12px;
+	font-size: 1rem;
+}
+
+.btnNewKennel:hover {
+	background-color: #363062;
+	color: white;
+	border: 1px solid #363062;
 }
 
 .mapPageContainer {
-	display: flex;
-	justify-content: space-around;
 	margin-top: 5%;
+	display: flex;
+}
+
+.goldenPic {
+	opacity: 0.2;
+	position: absolute;
+	top: 1%;
+	left: 68%;
+	height: 85%;
 }
 
 /* Map */
 
 .leaflet-container {
-	width: 80vh;
+	width: 100vh;
 	height: 80vh;
 	border-radius: 15px;
-	border: 5px solid #363062;
+	border: 2px solid #363062;
+	margin-left: 15%;
 }
 
+/* kennel list info */
+
 .kennelInfo {
-	border: 5px solid #363062;
-	float: right;
+	border: 2px solid #363062;
+	color: #e9d5ca;
 	border-radius: 15px;
 	padding: 1%;
 	width: 50vh;
+	margin-left: 2%;
+	z-index: 1;
+	background-color: #4d4c7d;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.mainInfo {
+	border: 1px red solid;
+	margin-top: 5%;
+}
+
+.kennelName {
+	font-size: 2rem;
+	text-align: center;
+	text-transform: uppercase;
+}
+.kennelDogs {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	height: 45vh;
+	border: 2px solid #e9d5ca;
+	border-radius: 15px;
+	background-color: #827397;
+	overflow-x: hidden;
+}
+
+.dogInfo {
+	margin-top: 2%;
+	padding: 1%;
+	border-radius: 15px;
+	border: 1px #e9d5ca solid;
+	color: #e9d5ca;
+	width: 20vw;
+	height: 25vh;
+}
+
+.dogName {
+	font-size: 2rem;
+	margin-left: 35%;
+}
+
+.basicInfo {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-around;
+}
+
+.btnContact {
+	cursor: pointer;
+	background-color: #e9d5ca;
+	color: #4d4c7d;
+	display: flex;
+	align-content: center;
+	margin-left: 35%;
+	justify-content: center;
+	height: 2.5vh;
+	width: 8vw;
+	font-size: 1rem;
+	margin-right: 2%;
+	margin-top: 3px;
+	border-radius: 15px;
 }
 
 .btnCancel {
-	color: red;
+	float: right;
+	margin-top: -5%;
 	cursor: pointer;
 }
 
 .kennelLocation {
-	color: red;
+}
+
+/* SearchBar */
+
+.searchBar {
+	position: absolute;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: row;
+
+	height: 5vh;
+	width: 50vw;
+	margin-left: 15%;
+	margin-top: -3%;
+}
+
+.searchCont {
+	display: flex;
+	margin-right: 20%;
+}
+
+.searchBtn {
+	cursor: pointer;
+	display: flex;
+	justify-content: center;
+	height: 2.5vh;
+	width: 1vw;
+	padding: 1%;
+	padding-right: 14px;
+	padding-left: 12px;
+	font-size: 1rem;
+	margin-right: 8%;
+	margin-top: 3px;
+}
+
+.resetBtn {
+	cursor: pointer;
+	display: flex;
+	justify-content: center;
+	height: 2.5vh;
+	width: 1vw;
+	padding: 1%;
+	padding-right: 14px;
+	padding-left: 12px;
+	font-size: 1rem;
+	margin-right: 2%;
+	margin-top: 3px;
 }

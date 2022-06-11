@@ -2,6 +2,8 @@ import React from 'react';
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { getKennels } from '../services/apiService';
+import dogPicture from './../assets/animals.png';
+import dogPicture1 from './../assets/animals1.png';
 
 function Main() {
 	const [location, setLocation] = useState({
@@ -25,61 +27,65 @@ function Main() {
 	}, []);
 
 	return (
-		<div className="mainContainer">
-			<h1 className="title">Tails</h1>
-			<p className="description">
-				Many dogs are looking for a second chance. <br></br> Do you want a new
-				best friend?
-			</p>
-			<div className="mapPath">
-				<Link
-					to={{
-						pathname: '/map',
-						location: location,
-					}}
-				>
-					<button className="btnGo">
-						Let's go!
-						<div className="arrowContainer">
-							<div className="arrow"></div>
-						</div>
-					</button>
-				</Link>
-			</div>
-
-			<section className="KennelSection">
-				<h3 className="title_Kennel">Are you a Kennel?</h3>
-				<div className="btnSection">
+		<div className="wrapper">
+			<img className="dogPicture" src={dogPicture} />
+			<img className="dogPicture1" src={dogPicture1} />
+			<div className="mainContainer">
+				<h1 className="title">Tails</h1>
+				<p className="description">
+					Many dogs are looking for a second chance. <br></br> Do you want a new
+					best friend?
+				</p>
+				<div className="mapPath">
 					<Link
 						to={{
-							pathname: '/login',
+							pathname: '/map',
+							location: location,
 						}}
 					>
-						<button
-							className="loginBtn"
-							// onClick={(e) => {
-							// 	handleClick('login');
-							// }}
-						>
-							Login
-						</button>
-					</Link>
-					<Link
-						to={{
-							pathname: '/register',
-						}}
-					>
-						<button
-						// className="registerBtn"
-						// onClick={(e) => {
-						// 	handleClick('register');
-						// }}
-						>
-							Register
+						<button className="btnGo">
+							Let's go!
+							<div className="arrowContainer">
+								<div className="arrow"></div>
+							</div>
 						</button>
 					</Link>
 				</div>
-			</section>
+
+				<section className="KennelSection">
+					<h3 className="title_Kennel">Are you a kennel?</h3>
+					<div className="btnSection">
+						<Link
+							to={{
+								pathname: '/login',
+							}}
+						>
+							<button
+								className="loginBtn"
+								// onClick={(e) => {
+								// 	handleClick('login');
+								// }}
+							>
+								Login
+							</button>
+						</Link>
+						<Link
+							to={{
+								pathname: '/register',
+							}}
+						>
+							<button
+								className="registerBtn"
+								// onClick={(e) => {
+								// 	handleClick('register');
+								// }}
+							>
+								Register
+							</button>
+						</Link>
+					</div>
+				</section>
+			</div>
 		</div>
 	);
 }

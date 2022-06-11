@@ -4,11 +4,12 @@ import { MapContainer, TileLayer, Marker } from 'react-leaflet';
 import L from 'leaflet';
 import { getKennels } from '../services/apiService';
 import yourPosition from '../assets/location_icon.png';
-import kennelsPos from '../assets/pngwing.com.png';
+import kennelsPos from '../assets/dogMarker.png';
 import 'leaflet/dist/leaflet.css';
 import KennelInfo from './KennelInfo';
 import SearchBar from './SearchBar';
 import Loader from './Loader';
+import goldenPic from './../assets/goldenPicture.png';
 
 function Map() {
 	const [location, setLocation] = useState(null);
@@ -52,7 +53,7 @@ function Map() {
 
 	let kennelsPosition = L.icon({
 		iconUrl: kennelsPos,
-		iconSize: [25, 35],
+		iconSize: [45, 45],
 	});
 
 	const showInfo = (id) => {
@@ -64,48 +65,54 @@ function Map() {
 	};
 
 	return location ? (
-		<div className="mapPageContainer">
-			<MapContainer
-				className="Map"
-				center={[location.latitude, location.longitude]}
-				zoom={14}
-			>
-				<TileLayer
-					attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-					url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-				/>
-				<Marker
-					position={{ lat: location.latitude, lng: location.longitude }}
-					icon={userPosition}
-				/>
-				{kennelList.map((kennel) => (
-					<Marker
-						key={kennel.id}
-						position={{ lat: `${kennel.latitude}`, lng: `${kennel.longitude}` }}
-						icon={kennelsPosition}
-						eventHandlers={{
-							click: () => {
-								showInfo(kennel.id);
-								setInfo(true);
-							},
-						}}
+		<div className="wrapper">
+			<img className="goldenPic" src={goldenPic} />
+			<div className="mapPageContainer">
+				<MapContainer
+					className="Map"
+					center={[location.latitude, location.longitude]}
+					zoom={14}
+				>
+					<TileLayer
+						attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+						url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
 					/>
-				))}
-			</MapContainer>
+					<Marker
+						position={{ lat: location.latitude, lng: location.longitude }}
+						icon={userPosition}
+					/>
+					{kennelList.map((kennel) => (
+						<Marker
+							key={kennel.id}
+							position={{
+								lat: `${kennel.latitude}`,
+								lng: `${kennel.longitude}`,
+							}}
+							icon={kennelsPosition}
+							eventHandlers={{
+								click: () => {
+									showInfo(kennel.id);
+									setInfo(true);
+								},
+							}}
+						/>
+					))}
+				</MapContainer>
 
-			{info && (
-				<KennelInfo
-					kennelInfo={kennelInfo}
-					setInfo={setInfo}
-					setKennelInfo={setKennelInfo}
-				/>
-			)}
+				{info && (
+					<KennelInfo
+						kennelInfo={kennelInfo}
+						setInfo={setInfo}
+						setKennelInfo={setKennelInfo}
+					/>
+				)}
 
-			<SearchBar
-				kennelList={kennelList}
-				setKennelList={setKennelList}
-				mainKennList={mainKennList}
-			></SearchBar>
+				<SearchBar
+					kennelList={kennelList}
+					setKennelList={setKennelList}
+					mainKennList={mainKennList}
+				></SearchBar>
+			</div>
 		</div>
 	) : (
 		<Loader />

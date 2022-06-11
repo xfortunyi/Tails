@@ -1,20 +1,20 @@
 import React from 'react';
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
+import cancelIcon from './../assets/cancelIcon.png';
 
 function KennelInfo({ kennelInfo, setKennelInfo, setInfo }) {
 	return (
 		<div className="kennelInfo">
-			You clicked:
 			<section className="mainInfo">
-				<button
+				<div
 					className="btnCancel"
 					onClick={() => {
 						setInfo(false);
 					}}
 				>
-					X
-				</button>
+					<img src={cancelIcon} />
+				</div>
 				<h1 className="kennelName">{kennelInfo.name}</h1>
 				<h3 className="kennelLocation">
 					{kennelInfo.adress}. {kennelInfo.city}
@@ -22,28 +22,31 @@ function KennelInfo({ kennelInfo, setKennelInfo, setInfo }) {
 				<h3 className="kennelWebsite">{kennelInfo.website}</h3>
 				<h3 className="kennelDescription">{kennelInfo.description}</h3>
 			</section>
+
 			<section className="kennelDogs">
-				Our Dogs:
 				<>
 					<div className="KennelDogsMap">
 						{kennelInfo.Dogs.map((dog) => (
 							<section className="dogInfo" key={dog.id}>
-								<div>{dog.name}</div>
-								<div>{dog.breed}</div>
-								<div>{dog.size}</div>
-								<div>{dog.age}</div>
+								<div className="dogName">{dog.name}</div>
+								<div className="basicInfo">
+									<div className="dogBreed">{dog.breed}</div>
+									<div className="dogSize">{dog.size}</div>
+									<div className="dogAge">{dog.age}</div>
+								</div>
+								<div>Picture?</div>
 							</section>
 						))}
 					</div>
 				</>
-				<Link
-					to={{
-						pathname: `/profile/${kennelInfo.id}`,
-					}}
-				>
-					<button className="btnContact">Contact Us</button>
-				</Link>
 			</section>
+			<Link
+				to={{
+					pathname: `/profile/${kennelInfo.id}`,
+				}}
+			>
+				<button className="btnContact">Contact Us</button>
+			</Link>
 		</div>
 	);
 }
