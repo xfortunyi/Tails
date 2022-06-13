@@ -12,35 +12,19 @@ const createDog = async (req, res) => {
 	}
 };
 
-const deleteDog = async (req, res) => {
-	try {
-		const deldog = await Dog.destroy(req.body) {
-			where: {
-				id : id
-			}
-		}
-	} catch (error) {
-
-	}
-}
-
-try {
-	const productToDelete = req.body.product;
-	const shopId = req.body.shopId;
-	const shop = Shop.findOne({
-		where: { id: shopId }
-	}).then(shop => {
-		shop.sequelize.query(
-			`UPDATE "Shops" SET products='{${[
-				shop.products.filter(product => product !== productToDelete)
-			]}}'WHERE id=${shopId}`
-		);
-	});
-
-	res.status(200).send(shop);
-} catch (error) {
-	console.log(error);
-	res.status(400).send({ error: "400", message: "Could not create shop" });
-}
+// const deleteDog = async (req, res) => {
+// 	try {
+// 		const id = req.body.id;
+// 		console.log(req.body.id);
+// 		await Dog.destroy({
+// 			where: {
+// 				id: id,
+// 			},
+// 		});
+// 	} catch (error) {
+// 		console.log(error);
+// 		res.status(500).send({ error: '500', message: 'Could not delete dog' });
+// 	}
+// };
 
 module.exports = { createDog };

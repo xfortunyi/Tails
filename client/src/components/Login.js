@@ -26,29 +26,31 @@ const Login = ({ kennelInfo }) => {
 			</div>
 			<form className="LoginForm" onSubmit={handleSubmit}>
 				<div className="Logincontainer">
-					<label className="labels">Email</label>
-					<input
-						className="inputs"
-						type="email"
-						name="email"
-						placeholder="Insert your email..."
-					></input>
-					<label className="labels">Password</label>
-					<input
-						className="inputs"
-						type="password"
-						name="password"
-						placeholder="Insert your password.."
-					></input>
-					<Link
+					<div className="InfoLog">
+						<label className="labels1">Email</label>
+						<input
+							className="inputs1"
+							type="email"
+							name="email"
+							placeholder="Insert your email..."
+						></input>
+						<label className="labels1">Password</label>
+						<input
+							className="inputs1"
+							type="password"
+							name="password"
+							placeholder="Insert your password.."
+						></input>
+					</div>
+					{/* <Link
 						to={{
 							pathname: `/profile/${kennelInfo.id}`,
 						}}
-					>
-						<button className="btnNewKennel" type="submit">
-							Enter
-						</button>
-					</Link>
+					> */}
+					<button className="btnNewKennel" type="submit">
+						Enter
+					</button>
+					{/* </Link> */}
 				</div>
 			</form>
 		</>

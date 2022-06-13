@@ -187,7 +187,7 @@
 /* Register Form */
 
 .steps {
-	opacity: 0.2;
+	opacity: 0.6;
 	position: absolute;
 	top: 5%;
 	left: 10%;
@@ -195,7 +195,7 @@
 }
 
 .steps1 {
-	opacity: 0.2;
+	opacity: 0.5;
 	position: absolute;
 	top: 20%;
 	left: 75%;
@@ -426,4 +426,38 @@
 	font-size: 1rem;
 	margin-right: 2%;
 	margin-top: 3px;
+}
+
+/* Login */
+
+.LoginForm {
+	border: 1px red solid;
+	display: flex;
+	width: 25%;
+	margin: auto;
+	margin-top: -50vh;
+}
+
+.InfoLog {
+	display: flex;
+	margin-left: 8%;
+	align-items: center;
+	border: 1px red solid;
+}
+
+.inputs1 {
+	margin-top: 1%;
+	border: #363062 2px solid;
+	border-radius: 5px;
+	height: 1.5rem;
+	text-align: center;
+	height: 4vh;
+	margin-left: 1%;
+}
+
+.labels1 {
+	color: #363062;
+	font-weight: bold;
+	margin-top: 3%;
+	margin-left: 1%;
 }
