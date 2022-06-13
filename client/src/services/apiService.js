@@ -6,6 +6,12 @@ export const getKennels = async () => {
 	return json;
 };
 
+export const getOneKennel = async (id) => {
+	const res = await fetch(`${BASE_URL}/profile/${id}`);
+	const json = await res.json(id);
+	return json;
+};
+
 export const createKennel = async (kennel) => {
 	const post = await fetch(`${BASE_URL}/register`, {
 		method: 'POST',

@@ -1,9 +1,11 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { login } from '../services/apiService';
 import Steps from './../assets/steps.png';
 
 const Login = () => {
+	let navigate = useNavigate();
+
 	function handleSubmit(e) {
 		e.preventDefault();
 		const kennel = {
@@ -11,7 +13,8 @@ const Login = () => {
 			password: e.target.password.value,
 		};
 		login(kennel).then((res) => {
-			console.log(res);
+			navigate(`/profile/${res.id}`);
+			// console.log(res);
 		});
 		e.target.reset();
 	}

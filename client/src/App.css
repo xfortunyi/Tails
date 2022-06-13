@@ -490,3 +490,16 @@
 	color: white;
 	border: 1px solid #363062;
 }
+
+/* Profile Info */
+
+.profileInfo {
+	display: flex;
+	border: 1px red solid;
+	color: red;
+}
+
+.profileDogs {
+	border: 1px solid green;
+	color: green;
+}

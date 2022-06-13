@@ -30,6 +30,23 @@ const getKennels = async function (req, res) {
 	}
 };
 
+const getOneKennel = async function (req, res) {
+	try {
+		const kennel = await Kennel.findOne({
+			include: [{ model: Dog }],
+			where: {
+				id: req.params.id,
+			},
+		});
+		res.status(200);
+		res.send(kennel);
+	} catch (error) {
+		res.status(500);
+		res.message = 'Error';
+		res.send();
+	}
+};
+
 const getKennelsAndDogs = async function (req, res) {
 	try {
 		const kennels = await Kennel.findAll({
@@ -87,4 +104,5 @@ module.exports = {
 	getKennelsAndDogs,
 	login,
 	logout,
+	getOneKennel,
 };

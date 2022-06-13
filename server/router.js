@@ -6,6 +6,7 @@ const kennelController = require('./controllers/kennel');
 const dogController = require('./controllers/dog');
 
 router.post('/login', kennelController.login);
+router.get('/profile/:id', kennelController.getOneKennel);
 router.post('/logout', authMiddleware, kennelController.logout);
 // router.get('/me', authMiddleware, userController.profile);
 router.get('/map', kennelController.getKennels);
