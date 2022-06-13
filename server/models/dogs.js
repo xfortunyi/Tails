@@ -26,6 +26,9 @@ Dog.init(
 		description: {
 			type: DataTypes.STRING,
 		},
+		kennelId: {
+			type: DataTypes.STRING,
+		},
 	},
 	{ sequelize }
 );

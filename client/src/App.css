@@ -495,11 +495,87 @@
 
 .profileInfo {
 	display: flex;
-	border: 1px red solid;
-	color: red;
+	flex-direction: column;
+	align-items: center;
+	justify-content: space-around;
+	border: 1px #827397 solid;
+	border-radius: 15px;
+	color: #827397;
+	margin-left: 2vh;
+	margin-top: 2vh;
+	height: 50vh;
+	width: 50%;
 }
 
 .profileDogs {
-	border: 1px solid green;
-	color: green;
+	color: #e9d5ca;
+	width: 90%;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-around;
+	align-items: center;
+	padding: 2%;
+	height: 25vh;
+	/* border: 2px solid #e9d5ca; */
+	border-radius: 15px;
+	background-color: #827397;
+	overflow-y: hidden;
+	margin-top: 10vh;
+	margin-left: 2vw;
+}
+
+.dogContainer {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	height: 90%;
+	width: 40%;
+	border: 1px #e9d5ca solid;
+	border-radius: 15px;
+}
+
+.dogMainInfo {
+	display: flex;
+	flex-direction: column;
+	border: 1px red solid;
+	height: 95%;
+	width: 50%;
+	padding: 1%;
+}
+
+/* Dog Form */
+.form {
+	border: 1px #827397 solid;
+	border-radius: 15px;
+	color: #827397;
+	width: 45%;
+	height: 50vh;
+	margin-top: -50vh;
+	float: right;
+	margin-right: 2vw;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+.containerForm {
+	/* border: 1px solid red; */
+	height: 80%;
+	display: flex;
+	justify-content: center;
+	flex-direction: column;
+}
+
+.btnNewDog {
+	cursor: pointer;
+	text-decoration: none;
+	margin-top: 1%;
+	height: 4vh;
+	width: 6vw;
+	border: 2px solid #363062;
+	border-radius: 5px;
+	background: rgb(255, 255, 255);
+	color: #363062;
+	padding: 1%;
+	font-size: 1rem;
 }

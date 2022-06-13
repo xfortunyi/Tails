@@ -1,5 +1,4 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import cancelIcon from './../assets/cancelIcon.png';
 import adressIcon from './../assets/adress2.png';
 import descriptionIcon from './../assets/information2.png';
@@ -55,13 +54,6 @@ function KennelInfo({ kennelInfo, setKennelInfo, setInfo }) {
 					</div>
 				</>
 			</section>
-			{/* <Link
-				to={{
-					pathname: `/profile/${kennelInfo.id}`,
-				}}
-			>
-				<button className="btnContact">Contact Us</button>
-			</Link> */}
 		</div>
 	);
 }

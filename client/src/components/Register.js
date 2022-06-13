@@ -1,9 +1,11 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { createKennel } from '../services/apiService';
 import Steps from './../assets/steps.png';
 
 function Register() {
+	let navigate = useNavigate();
+
 	const asyncNewKennel = async (newKennel) => {
 		return await createKennel(newKennel);
 	};
@@ -21,7 +23,9 @@ function Register() {
 			latitude: e.target.latitude.value,
 			longitude: e.target.longitude.value,
 		};
-		let test = asyncNewKennel(newKennel);
+		asyncNewKennel(newKennel).then((res) => {
+			navigate(`/profile/${res.id}`);
+		});
 		e.target.reset();
 	}
 
@@ -108,15 +112,9 @@ function Register() {
 						name="latitude"
 						placeholder="Insert a latitude..."
 					></input>
-					{/* <Link
-						to={{
-							pathname: '/profile',
-						}}
-					> */}
 					<button className="btnNewKennel" type="submit">
 						Submit
 					</button>
-					{/* </Link> */}
 				</div>
 			</form>
 		</div>

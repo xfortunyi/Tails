@@ -22,6 +22,16 @@ export const createKennel = async (kennel) => {
 	return json;
 };
 
+export const createDog = async (dog) => {
+	const post = await fetch(`${BASE_URL}/dogs`, {
+		method: 'POST',
+		headers: { 'Content-Type': 'application/json' },
+		body: JSON.stringify(dog),
+	});
+	const json = await post.json();
+	return json;
+};
+
 export const login = (kennel) => {
 	const kennelLog = fetch(`${BASE_URL}/login`, {
 		method: 'POST',
@@ -44,63 +54,3 @@ export const logout = async () => {
 		.then((res) => res.json())
 		.catch((err) => console.log(err));
 };
-
-// 		method: 'POST',
-// 		credentials: 'include',
-// 		mode: 'cors',
-// 		headers: { 'Content-Type': 'application/json' },
-// 		body: JSON.stringify(user),
-// 	})
-// 		.then((res) => res.json())
-// 		.catch((err) => console.log(err));
-// };
-
-// const apiService = {};
-
-// apiService.register = (user) => {
-// 	return fetch(`${BASE_URL}/register`, {
-// 		method: 'POST',
-// 		credentials: 'include',
-// 		mode: 'cors',
-// 		headers: { 'Content-Type': 'application/json' },
-// 		body: JSON.stringify(user),
-// 	})
-// 		.then((res) => res.json())
-// 		.catch((err) => console.log(err));
-// };
-
-// apiService.login = (user) => {
-// 	return fetch(`${BASE_URL}/login`, {
-// 		method: 'POST',
-// 		credentials: 'include',
-// 		mode: 'cors',
-// 		headers: { 'Content-Type': 'application/json' },
-// 		body: JSON.stringify(user),
-// 	})
-// 		.then((res) => res.json())
-// 		.catch((err) => console.log(err));
-// };
-
-// apiService.profile = () => {
-// 	return fetch(`${BASE_URL}/me`, {
-// 		method: 'GET',
-// 		credentials: 'include',
-// 		mode: 'cors',
-// 		headers: { 'Content-Type': 'application/json' },
-// 	})
-// 		.then((res) => res.json())
-// 		.catch((err) => console.log(err));
-// };
-
-// apiService.logout = () => {
-// 	return fetch(`${BASE_URL}/logout`, {
-// 		method: 'POST',
-// 		credentials: 'include',
-// 		mode: 'cors',
-// 		headers: { 'Content-Type': 'application/json' },
-// 	})
-// 		.then((res) => res.json())
-// 		.catch((err) => console.log(err));
-// };
-
-// export default apiService;

@@ -14,7 +14,6 @@ const Login = () => {
 		};
 		login(kennel).then((res) => {
 			navigate(`/profile/${res.id}`);
-			// console.log(res);
 		});
 		e.target.reset();
 	}
@@ -43,15 +42,9 @@ const Login = () => {
 							placeholder="Insert your password.."
 						></input>
 					</div>
-					{/* <Link
-						to={{
-							pathname: `/profile/${id}`,
-						}}
-					> */}
 					<button className="btnNewLogin" type="submit">
 						Sign In
 					</button>
-					{/* </Link> */}
 				</div>
 			</form>
 		</>

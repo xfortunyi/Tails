@@ -1,9 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
+import Loader from './../components/Loader';
 import { getOneKennel } from './../services/apiService';
+import DogForm from './DogForm';
 
 function Profile() {
-	const [kennelData, setKennelData] = useState({});
+	const [kennelData, setKennelData] = useState();
 
 	const { id } = useParams();
 
@@ -19,33 +21,43 @@ function Profile() {
 
 	return (
 		<>
-			<section className="profileInfo">
-				<div>{kennelData.name}</div>
-				<div>
-					{kennelData.adress}
-					{kennelData.city}
-				</div>
-				<div>
-					{kennelData.telephone}
-					{kennelData.email}
-				</div>
-				<div>{kennelData.description}</div>
-			</section>
-			<section>
-				<div className="profileDogs">
-					{kennelData.Dogs.map((dog) => (
-						<section key={dog.id}>
-							<div>{dog.name}</div>
-							<div>
-								<div>{dog.breed}</div>
-								<div>{dog.size}</div>
-								<div>{dog.age}</div>
-							</div>
-							<div>Picture?</div>
-						</section>
-					))}
-				</div>
-			</section>
+			{kennelData ? (
+				<>
+					<section className="profileInfo">
+						<div>{kennelData.name}</div>
+						<div>
+							{kennelData.adress}
+							{kennelData.city}
+						</div>
+						<div>
+							{kennelData.telephone}
+							{kennelData.email}
+						</div>
+						<div>{kennelData.description}</div>
+					</section>
+					<DogForm setKennelData={setKennelData} />
+
+					<div className="profileDogs">
+						{kennelData.Dogs.map((dog) => (
+							<>
+								<section key={dog.id} className="dogContainer">
+									<div className="dogMainInfo">
+										<div className="dogNameProfile">{dog.name}</div>
+										<div className="dogbreedProfile">{dog.breed}</div>
+										<div className="dogsizeProfile">{dog.size}</div>
+										<div className="dogageProfile">{dog.age}</div>
+										<div className="dogdescriptionProfile">
+											{dog.description}
+										</div>
+									</div>
+								</section>
+							</>
+						))}
+					</div>
+				</>
+			) : (
+				<Loader />
+			)}
 		</>
 	);
 }
