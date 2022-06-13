@@ -1,5 +1,6 @@
 const Kennel = require('./../models/kennel');
 const Dog = require('./../models/dogs');
+const bcrypt = require('bcrypt');
 const { Sequelize, Op } = require('sequelize');
 
 const createKennel = async function (req, res) {
@@ -45,31 +46,42 @@ const getKennelsAndDogs = async function (req, res) {
 	}
 };
 
-// const findDogByBreed = async (req, res) => {
-// 	try {
-// 		let { breed } = req.body;
-// 		const kennels = await Kennel.findAll({
-// 			include: [
-// 				{
-// 					model: Dog,
-// 				},
-// 			],
-// 			where: {
-// 				breed: {
-// 					[Op.contains]: [`${breed}`],
-// 				},
-// 			},
-// 		});
-// 		res.status(200).send(kennels);
-// 	} catch (error) {
-// 		console.log(error);
-// 		res.sendStatus(500);
-// 	}
-// };
+const login = async (req, res) => {
+	try {
+		const { email, password } = req.body;
+		const kennelLog = await Kennel.findOne({
+			where: {
+				email: email,
+			},
+		});
+		const validatedPass = await bcrypt.compare(password, user.password);
+		if (!validatedPass) throw new Error();
+		req.session.uid = kennelLog._id;
+		res.status(200).send(kennelLog);
+	} catch (error) {
+		res
+			.status(401)
+			.send({ error: '401', message: 'Username or password is incorrect' });
+	}
+};
+
+const logout = (req, res) => {
+	req.session.destroy((error) => {
+		if (error) {
+			res
+				.status(500)
+				.send({ error, message: 'Could not log out, please try again' });
+		} else {
+			res.clearCookie('sid');
+			res.status(200).send({ message: 'Logout successful' });
+		}
+	});
+};
 
 module.exports = {
 	createKennel,
 	getKennels,
 	getKennelsAndDogs,
-	// findDogByBreed,
+	login,
+	logout,
 };

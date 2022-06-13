@@ -16,6 +16,39 @@ export const createKennel = async (kennel) => {
 	return json;
 };
 
+export const login = async (kennel) => {
+	const kennelLog = await fetch(`${BASE_URL}/login`, {
+		method: 'POST',
+		credentials: 'include',
+		mode: 'cors',
+		headers: { 'Content-Type': 'application/json' },
+		body: JSON.stringify(kennel),
+	})
+		.then((res) => res.json())
+		.catch((err) => console.log(err));
+};
+
+export const logout = async () => {
+	const logout = fetch(`${BASE_URL}/logout`, {
+		method: 'POST',
+		credentials: 'include',
+		mode: 'cors',
+		headers: { 'Content-Type': 'application/json' },
+	})
+		.then((res) => res.json())
+		.catch((err) => console.log(err));
+};
+
+// 		method: 'POST',
+// 		credentials: 'include',
+// 		mode: 'cors',
+// 		headers: { 'Content-Type': 'application/json' },
+// 		body: JSON.stringify(user),
+// 	})
+// 		.then((res) => res.json())
+// 		.catch((err) => console.log(err));
+// };
+
 // const apiService = {};
 
 // apiService.register = (user) => {

@@ -5,14 +5,12 @@ const router = express.Router();
 const kennelController = require('./controllers/kennel');
 const dogController = require('./controllers/dog');
 
-// router.post('/register', userController.create);
-// router.post('/login', userController.login);
+router.post('/login', kennelController.login);
+router.post('/logout', authMiddleware, kennelController.logout);
 // router.get('/me', authMiddleware, userController.profile);
 router.get('/map', kennelController.getKennels);
 router.get('/alldogs', kennelController.getKennelsAndDogs);
-// router.post('/logout', authMiddleware, userController.logout);
 router.post('/register', kennelController.createKennel);
 router.post('/dogs', dogController.createDog);
-// router.post('/dogsbybreed', kennelController.findDogByBreed);
 
 module.exports = router;

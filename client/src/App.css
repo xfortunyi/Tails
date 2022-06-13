@@ -101,15 +101,15 @@
 .dogPicture {
 	opacity: 0.2;
 	position: absolute;
-	top: -5%;
-	left: 10%;
+	top: 7%;
+	left: 5%;
 	height: 90%;
 }
 
 .dogPicture1 {
 	opacity: 0.2;
 	position: absolute;
-	top: 35%;
+	top: 55%;
 	left: 65%;
 	height: 50%;
 }
@@ -146,7 +146,7 @@
 
 .loginBtn {
 	text-decoration: none;
-	height: 3vh;
+	height: 2%;
 	width: 5vw;
 	border: 1px solid #363062;
 	border-radius: 5px;
@@ -166,8 +166,8 @@
 .registerBtn {
 	margin-right: 0.5%;
 	cursor: pointer;
-	height: 3vh;
-	width: 5vw;
+	height: 2%;
+	width: 6vw;
 	border: 1px solid #363062;
 	border-radius: 5px;
 	background: rgb(255, 255, 255);
@@ -203,8 +203,8 @@
 }
 .registerForm {
 	display: flex;
-
-	margin: auto;
+	margin-left: 30%;
+	margin-top: -5vh;
 	/* border: 1px solid red; */
 	height: 81vh;
 	width: 60vh;
@@ -227,6 +227,7 @@
 	border-radius: 5px;
 	height: 1.5rem;
 	text-align: center;
+	height: 4vh;
 }
 
 .labels {
@@ -241,7 +242,7 @@
 	margin-right: 0.5%;
 	margin-top: 2%;
 	margin-left: 35%;
-	height: 3vh;
+	height: 4vh;
 	width: 8vw;
 	border: 2px solid #363062;
 	border-radius: 5px;
@@ -290,6 +291,7 @@
 	border-radius: 15px;
 	padding: 1%;
 	width: 50vh;
+	height: 76vh;
 	margin-left: 2%;
 	z-index: 1;
 	background-color: #4d4c7d;
@@ -298,25 +300,44 @@
 	justify-content: space-between;
 }
 
+.btnCancel {
+	float: right;
+	cursor: pointer;
+}
+
 .mainInfo {
-	border: 1px red solid;
+	/* border: 1px red solid; */
 	margin-top: 5%;
 }
 
 .kennelName {
 	font-size: 2rem;
-	text-align: center;
 	text-transform: uppercase;
 }
+
+.wrappedKennelInfo {
+	display: flex;
+	flex-direction: row;
+	justify-content: flex-start;
+	margin-top: 1%;
+	height: 8%;
+	align-items: center;
+}
+
+.kennelMainInfo {
+	margin-left: 3vh;
+}
+
 .kennelDogs {
 	display: flex;
 	flex-direction: column;
 	align-items: center;
-	height: 45vh;
+	height: 30vh;
 	border: 2px solid #e9d5ca;
 	border-radius: 15px;
 	background-color: #827397;
 	overflow-x: hidden;
+	margin-top: -15vh;
 }
 
 .dogInfo {
@@ -330,6 +351,7 @@
 }
 
 .dogName {
+	font-weight: bold;
 	font-size: 2rem;
 	margin-left: 35%;
 }
@@ -338,31 +360,24 @@
 	display: flex;
 	flex-direction: row;
 	justify-content: space-around;
+	font-weight: bold;
 }
 
 .btnContact {
 	cursor: pointer;
-	background-color: #e9d5ca;
-	color: #4d4c7d;
-	display: flex;
-	align-content: center;
-	margin-left: 35%;
-	justify-content: center;
-	height: 2.5vh;
+	margin-top: 1.5vh;
+	margin-left: 30%;
+	text-decoration: none;
+	height: 4vh;
 	width: 8vw;
+	border: 1px solid #363062;
+	border-radius: 5px;
+	background: #e9d5ca;
+	color: #363062;
+	padding: 1%;
+	padding-right: 14px;
+	padding-left: 12px;
 	font-size: 1rem;
-	margin-right: 2%;
-	margin-top: 3px;
-	border-radius: 15px;
-}
-
-.btnCancel {
-	float: right;
-	margin-top: -5%;
-	cursor: pointer;
-}
-
-.kennelLocation {
 }
 
 /* SearchBar */

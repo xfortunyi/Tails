@@ -14,6 +14,9 @@ Kennel.init(
 		name: {
 			type: DataTypes.STRING,
 		},
+		password: {
+			type: DataTypes.STRING,
+		},
 		adress: {
 			type: DataTypes.STRING,
 		},
@@ -24,8 +27,8 @@ Kennel.init(
 			type: DataTypes.STRING,
 			unique: true,
 		},
-		password: {
-			type: DataTypes.STRING,
+		telephone: {
+			type: DataTypes.FLOAT,
 		},
 		website: {
 			type: DataTypes.STRING,
