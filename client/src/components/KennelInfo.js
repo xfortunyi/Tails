@@ -55,13 +55,13 @@ function KennelInfo({ kennelInfo, setKennelInfo, setInfo }) {
 					</div>
 				</>
 			</section>
-			<Link
+			{/* <Link
 				to={{
 					pathname: `/profile/${kennelInfo.id}`,
 				}}
 			>
 				<button className="btnContact">Contact Us</button>
-			</Link>
+			</Link> */}
 		</div>
 	);
 }

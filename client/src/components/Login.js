@@ -3,24 +3,22 @@ import { Link } from 'react-router-dom';
 import { login } from '../services/apiService';
 import Steps from './../assets/steps.png';
 
-const Login = ({ kennelInfo }) => {
-	console.log('hello', kennelInfo);
-	const asyncLogin = async (kennel) => {
-		return await login(kennel);
-	};
+const Login = () => {
 	function handleSubmit(e) {
 		e.preventDefault();
 		const kennel = {
 			email: e.target.email.value,
 			password: e.target.password.value,
 		};
-		let test = asyncLogin(kennel);
+		login(kennel).then((res) => {
+			console.log(res);
+		});
 		e.target.reset();
 	}
 
 	return (
 		<>
-			<div className="wrapper">
+			<div className="wrapper1">
 				<img className="steps" src={Steps} />
 				<img className="steps1" src={Steps} />
 			</div>
@@ -44,11 +42,11 @@ const Login = ({ kennelInfo }) => {
 					</div>
 					{/* <Link
 						to={{
-							pathname: `/profile/${kennelInfo.id}`,
+							pathname: `/profile/${id}`,
 						}}
 					> */}
-					<button className="btnNewKennel" type="submit">
-						Enter
+					<button className="btnNewLogin" type="submit">
+						Sign In
 					</button>
 					{/* </Link> */}
 				</div>

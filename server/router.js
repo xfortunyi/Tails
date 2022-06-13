@@ -12,6 +12,6 @@ router.get('/map', kennelController.getKennels);
 router.get('/alldogs', kennelController.getKennelsAndDogs);
 router.post('/register', kennelController.createKennel);
 router.post('/dogs', dogController.createDog);
-// router.delete('/deleteDogs/:id', dogController.deleteDog);
+router.delete('/deleteDogs/:id', dogController.deleteDog);
 
 module.exports = router;

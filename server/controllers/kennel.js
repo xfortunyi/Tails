@@ -50,13 +50,16 @@ const login = async (req, res) => {
 	try {
 		const { email, password } = req.body;
 		const kennelLog = await Kennel.findOne({
+			include: [{ model: Dog }],
 			where: {
 				email: email,
+				password: password,
 			},
 		});
-		const validatedPass = await bcrypt.compare(password, user.password);
-		if (!validatedPass) throw new Error();
-		req.session.uid = kennelLog._id;
+		if (!kennelLog) {
+			throw new Error();
+		}
+
 		res.status(200).send(kennelLog);
 	} catch (error) {
 		res

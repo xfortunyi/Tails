@@ -16,16 +16,16 @@ export const createKennel = async (kennel) => {
 	return json;
 };
 
-export const login = async (kennel) => {
-	const kennelLog = await fetch(`${BASE_URL}/login`, {
+export const login = (kennel) => {
+	const kennelLog = fetch(`${BASE_URL}/login`, {
 		method: 'POST',
-		credentials: 'include',
 		mode: 'cors',
 		headers: { 'Content-Type': 'application/json' },
 		body: JSON.stringify(kennel),
 	})
 		.then((res) => res.json())
 		.catch((err) => console.log(err));
+	return kennelLog;
 };
 
 export const logout = async () => {
