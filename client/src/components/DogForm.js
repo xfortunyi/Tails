@@ -1,8 +1,22 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import { useState } from 'react';
 import { createDog } from './../services/apiService';
 import { useParams } from 'react-router-dom';
+import { storage } from './../services/firebase';
+import { ref, uploadBytes } from 'firebase/storage';
+import { v4 } from 'uuid';
 
 function DogForm({ setKennelData }) {
+	const [imageUpload, setImageUpload] = useState(null);
+
+	const uploadImage = () => {
+		if (imageUpload == null) return;
+		const imageRef = ref(storage, `images/${imageUpload.name + v4()}`);
+		uploadBytes(imageRef, imageUpload).then(() => {
+			alert('Image uploaded');
+		});
+	};
+
 	const asyncNewDog = async (newDog) => {
 		return await createDog(newDog);
 	};
@@ -16,6 +30,7 @@ function DogForm({ setKennelData }) {
 			size: e.target.size.value,
 			age: e.target.age.value,
 			description: e.target.description.value,
+			// image: state
 			kennelId: id,
 		};
 		asyncNewDog(newDog);
@@ -75,8 +90,18 @@ function DogForm({ setKennelData }) {
 					name="description"
 					placeholder="Insert a description..."
 				></input>
+				<label className="labels">Add a picture</label>
+				<input
+					className="inputs2"
+					type="file"
+					name="picture"
+					onChange={(event) => {
+						setImageUpload(event.target.files[0]);
+					}}
+				/>
+				{/* <button onClick={uploadImage}>Upload image</button> */}
 			</div>
-			<button className="btnNewDog" type="submit">
+			<button className="btnNewDog" type="submit" onClick={uploadImage}>
 				Submit
 			</button>
 		</form>

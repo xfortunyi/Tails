@@ -1,7 +1,8 @@
 import React from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 import { createKennel } from '../services/apiService';
 import Steps from './../assets/steps.png';
+import backIcon from './../assets/backIcon.png';
 
 function Register() {
 	let navigate = useNavigate();
@@ -33,6 +34,13 @@ function Register() {
 		<div className="wrapper">
 			<img className="steps" src={Steps} />
 			<img className="steps1" src={Steps} />
+			<Link
+				to={{
+					pathname: '/',
+				}}
+			>
+				<img className="backBtnMap1" src={backIcon} />
+			</Link>
 			<form className="registerForm" onSubmit={handleSubmit}>
 				<div className="container">
 					<label className="labels">Name</label>

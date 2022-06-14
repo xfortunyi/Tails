@@ -201,6 +201,13 @@
 	left: 75%;
 	height: 80%;
 }
+
+.backBtnMap1 {
+	display: flex;
+	margin-top: 5px;
+	margin-left: 2vh;
+}
+
 .registerForm {
 	display: flex;
 	margin-left: 30%;
@@ -281,6 +288,12 @@
 	border-radius: 15px;
 	border: 2px solid #363062;
 	margin-left: 15%;
+}
+
+.backBtnMap {
+	display: flex;
+	margin-top: -50px;
+	margin-left: 2vh;
 }
 
 /* kennel list info */
@@ -439,6 +452,12 @@
 	z-index: -1;
 }
 
+.backBtnMap2 {
+	display: flex;
+	margin-top: 5px;
+	margin-left: 2vh;
+}
+
 .InfoLog {
 	display: flex;
 	margin-left: 8%;
@@ -498,38 +517,84 @@
 	flex-direction: column;
 	align-items: center;
 	justify-content: space-around;
-	border: 1px #827397 solid;
+	border: 1px #363062 solid;
 	border-radius: 15px;
-	color: #827397;
+	color: #363062;
 	margin-left: 2vh;
 	margin-top: 2vh;
 	height: 50vh;
 	width: 50%;
 }
 
+.profileTitle {
+	font-size: 2rem;
+	font-weight: bold;
+	letter-spacing: 0.2rem;
+}
+
+.profileInformation {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-around;
+	margin-left: 1vw;
+	padding: 1%;
+	width: 50%;
+	height: 20vh;
+	border: 1px #363062 solid;
+	border-radius: 15px;
+	font-size: 1rem;
+	color: #363062;
+	font-weight: bold;
+}
+
+.profilewithPictures {
+	display: flex;
+	align-items: center;
+}
+
+.logoutBtn {
+	margin-left: 40vw;
+	cursor: pointer;
+	text-decoration: none;
+	height: 4vh;
+	width: 6vw;
+	border: 2px solid #363062;
+	border-radius: 5px;
+	background: rgb(255, 255, 255);
+	color: #363062;
+	padding: 1%;
+	font-size: 1rem;
+}
+
 .profileDogs {
 	color: #e9d5ca;
-	width: 90%;
 	display: flex;
 	flex-direction: row;
-	justify-content: space-around;
 	align-items: center;
 	padding: 2%;
 	height: 25vh;
-	/* border: 2px solid #e9d5ca; */
+	width: 60vw;
 	border-radius: 15px;
 	background-color: #827397;
 	overflow-y: hidden;
 	margin-top: 10vh;
-	margin-left: 2vw;
+	margin-left: 20%;
+}
+
+.inputs2 {
+	margin-top: 1%;
+	border: #363062 2px solid;
+	background-color: white;
+	border-radius: 5px;
+	text-align: center;
+	height: 2.7vh;
 }
 
 .dogContainer {
 	display: flex;
 	flex-direction: column;
-	justify-content: center;
+	margin-left: 2vw;
 	height: 90%;
-	width: 40%;
 	border: 1px #e9d5ca solid;
 	border-radius: 15px;
 }
@@ -537,15 +602,17 @@
 .dogMainInfo {
 	display: flex;
 	flex-direction: column;
-	border: 1px red solid;
-	height: 95%;
-	width: 50%;
+	justify-content: space-around;
+	height: 300px;
+	width: 300px;
+	margin-right: 2px;
 	padding: 1%;
+	font-weight: bold;
 }
 
 /* Dog Form */
 .form {
-	border: 1px #827397 solid;
+	border: 1px #363062 solid;
 	border-radius: 15px;
 	color: #827397;
 	width: 45%;

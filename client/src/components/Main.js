@@ -60,28 +60,14 @@ function Main() {
 								pathname: '/login',
 							}}
 						>
-							<button
-								className="loginBtn"
-								// onClick={(e) => {
-								// 	handleClick('login');
-								// }}
-							>
-								Login
-							</button>
+							<button className="loginBtn">Login</button>
 						</Link>
 						<Link
 							to={{
 								pathname: '/register',
 							}}
 						>
-							<button
-								className="registerBtn"
-								// onClick={(e) => {
-								// 	handleClick('register');
-								// }}
-							>
-								Register
-							</button>
+							<button className="registerBtn">Register</button>
 						</Link>
 					</div>
 				</section>

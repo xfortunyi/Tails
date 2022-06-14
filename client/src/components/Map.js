@@ -2,6 +2,7 @@ import React from 'react';
 import { useEffect, useState } from 'react';
 import { MapContainer, TileLayer, Marker } from 'react-leaflet';
 import L from 'leaflet';
+import { Link } from 'react-router-dom';
 import { getKennels } from '../services/apiService';
 import yourPosition from '../assets/location_icon.png';
 import kennelsPos from '../assets/dogMarker.png';
@@ -10,6 +11,7 @@ import KennelInfo from './KennelInfo';
 import SearchBar from './SearchBar';
 import Loader from './Loader';
 import goldenPic from './../assets/goldenPicture.png';
+import backIcon from './../assets/backIcon.png';
 
 function Map() {
 	const [location, setLocation] = useState(null);
@@ -68,6 +70,13 @@ function Map() {
 		<div className="wrapper">
 			<img className="goldenPic" src={goldenPic} />
 			<div className="mapPageContainer">
+				<Link
+					to={{
+						pathname: '/',
+					}}
+				>
+					<img className="backBtnMap" src={backIcon} />
+				</Link>
 				<MapContainer
 					className="Map"
 					center={[location.latitude, location.longitude]}

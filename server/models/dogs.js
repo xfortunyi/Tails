@@ -26,6 +26,9 @@ Dog.init(
 		description: {
 			type: DataTypes.STRING,
 		},
+		// image: {
+		// 	type: DataTypes.STRING,
+		// },
 		kennelId: {
 			type: DataTypes.STRING,
 		},

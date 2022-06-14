@@ -2,6 +2,7 @@ import React from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { login } from '../services/apiService';
 import Steps from './../assets/steps.png';
+import backIcon from './../assets/backIcon.png';
 
 const Login = () => {
 	let navigate = useNavigate();
@@ -24,6 +25,13 @@ const Login = () => {
 				<img className="steps" src={Steps} />
 				<img className="steps1" src={Steps} />
 			</div>
+			<Link
+				to={{
+					pathname: '/',
+				}}
+			>
+				<img className="backBtnMap2" src={backIcon} />
+			</Link>
 			<form className="LoginForm" onSubmit={handleSubmit}>
 				<div className="Logincontainer">
 					<div className="InfoLog">
