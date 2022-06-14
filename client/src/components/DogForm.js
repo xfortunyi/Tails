@@ -35,11 +35,14 @@ function DogForm({ setKennelData }) {
 	};
 
 	const asyncNewDog = async (newDog) => {
-		return await createDog(newDog);
+		const dog = await createDog(newDog);
+		console.log('promise', dog);
+		return dog;
+		// return await createDog(newDog);
 	};
 	const { id } = useParams();
 
-	function handleSubmit(e) {
+	async function handleSubmit(e) {
 		console.log('submiting');
 
 		const newDog = {
@@ -52,9 +55,10 @@ function DogForm({ setKennelData }) {
 			kennelId: id,
 		};
 		console.log(newDog);
-		asyncNewDog(newDog);
+		const newDogWithId = await asyncNewDog(newDog);
 		setKennelData((prev) => {
-			let newState = [...prev.Dogs, newDog];
+			let newState = [...prev.Dogs, newDogWithId];
+			console.log('prova', newState);
 			return { ...prev, Dogs: newState };
 		});
 		// e.target.reset();

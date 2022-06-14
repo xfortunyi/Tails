@@ -29,6 +29,7 @@ export const createDog = async (dog) => {
 		body: JSON.stringify(dog),
 	});
 	const json = await post.json();
+	console.log('hello json', json);
 	return json;
 };
 
