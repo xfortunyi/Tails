@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import Loader from './../components/Loader';
-import { getOneKennel } from './../services/apiService';
+import { getOneKennel, deleteDog } from './../services/apiService';
 import DogForm from './DogForm';
 import adressIcon from './../assets/adress2.png';
 import phoneIcon from './../assets/phone.png';
@@ -17,6 +17,24 @@ function Profile() {
 		const data = await getOneKennel(id);
 		console.log(data);
 		setKennelData(data);
+	};
+
+	const deleteOneDog = async function (dogid) {
+		console.log('xaviii', dogid);
+		await deleteDog(dogid);
+		// console.log(kennelData.Dogs);
+		// const arr = kennelData.Dogs.filter((el) => {
+		// 	return el.id !== dogid;
+		// });
+		// console.log(arr);
+		setKennelData((prev) => {
+			const arr = prev.Dogs.filter((el) => {
+				return el.id !== dogid;
+			});
+			console.log('hey', arr);
+			return arr;
+		});
+		getKennel();
 	};
 
 	useEffect(() => {
@@ -56,23 +74,41 @@ function Profile() {
 						</div>
 					</section>
 					<DogForm setKennelData={setKennelData} />
-
 					<div className="profileDogs">
-						{kennelData.Dogs.map((dog) => (
-							<>
-								<section key={dog.id} className="dogContainer">
-									<div className="dogMainInfo">
-										<div className="dogNameProfile">{dog.name}</div>
-										<div className="dogbreedProfile">{dog.breed}</div>
-										<div className="dogsizeProfile">{dog.size}</div>
-										<div className="dogageProfile">{dog.age}</div>
-										<div className="dogdescriptionProfile">
-											{dog.description}
-										</div>
-									</div>
-								</section>
-							</>
-						))}
+						{kennelData &&
+							kennelData.Dogs &&
+							kennelData.Dogs.map((dog) => {
+								console.log(dog);
+								return (
+									<>
+										<section key={dog.id} className="dogContainer">
+											<div className="dogMainInfo">
+												<div className="moreInfo">
+													<div className="dogNameProfile">{dog.name}</div>
+													<div className="dogbreedProfile">{dog.breed}</div>
+													<div className="dogsizeProfile">{dog.size}</div>
+													<div className="dogageProfile">{dog.age}</div>
+													<div className="dogdescriptionProfile">
+														{dog.description}
+													</div>
+												</div>
+												<div className="dogImagesContainer">
+													<img className="dogsImages" src={dog.image}></img>
+													<button
+														onClick={() => {
+															console.log('xavi2', dog.id);
+															return deleteOneDog(dog.id);
+														}}
+														className="adoptedBtn"
+													>
+														Adopted!
+													</button>
+												</div>
+											</div>
+										</section>
+									</>
+								);
+							})}
 					</div>
 				</>
 			) : (

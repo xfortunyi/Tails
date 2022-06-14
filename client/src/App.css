@@ -341,6 +341,25 @@
 	margin-left: 3vh;
 }
 
+.dogMapPictureMap {
+	/* display: flex; */
+	/* flex-direction: row; */
+
+	width: 200px;
+
+	margin-top: 20px;
+	/* margin-top: 80px; */
+	border: 1px red solid;
+}
+
+.dogMapPicture {
+	height: 150px;
+	width: 150px;
+
+	margin-right: 20px;
+	border: 1px red solid;
+}
+
 .kennelDogs {
 	display: flex;
 	flex-direction: column;
@@ -354,6 +373,8 @@
 }
 
 .dogInfo {
+	/* display: flex; */
+	/* justify-content: flex-start; */
 	margin-top: 2%;
 	padding: 1%;
 	border-radius: 15px;
@@ -592,7 +613,7 @@
 
 .dogContainer {
 	display: flex;
-	flex-direction: column;
+	flex-direction: row;
 	margin-left: 2vw;
 	height: 90%;
 	border: 1px #e9d5ca solid;
@@ -601,13 +622,52 @@
 
 .dogMainInfo {
 	display: flex;
-	flex-direction: column;
+	flex-direction: row;
 	justify-content: space-around;
 	height: 300px;
-	width: 300px;
+	width: 350px;
 	margin-right: 2px;
 	padding: 1%;
+	margin-top: 5%;
+}
+
+.moreInfo {
+	display: flex;
+	flex-direction: column;
+	border: 1px red solid;
+	height: 180px;
+	width: 120px;
+	justify-content: space-between;
+}
+
+.dogNameProfile {
 	font-weight: bold;
+	font-size: 1.5rem;
+	text-align: center;
+	text-decoration: underline;
+}
+
+.dogsImages {
+	display: flex;
+	border: 1px red solid;
+	width: 200px;
+	height: 150px;
+}
+
+.adoptedBtn {
+	cursor: pointer;
+	text-decoration: none;
+	align-items: center;
+	margin-top: 2%;
+	margin-left: 2vw;
+	height: 3vh;
+	width: 6vw;
+	border: 2px solid #363062;
+	border-radius: 5px;
+	background: rgb(255, 255, 255);
+	color: #363062;
+	padding: 1%;
+	font-size: 1rem;
 }
 
 /* Dog Form */
@@ -626,7 +686,6 @@
 }
 
 .containerForm {
-	/* border: 1px solid red; */
 	height: 80%;
 	display: flex;
 	justify-content: center;

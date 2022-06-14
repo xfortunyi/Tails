@@ -32,6 +32,17 @@ export const createDog = async (dog) => {
 	return json;
 };
 
+export const deleteDog = async (id) => {
+	console.log('hey', id);
+	const dogdelete = await fetch(`${BASE_URL}/deleteDogs/${id}`, {
+		method: 'DELETE',
+		headers: { 'Content-Type': 'application/json' },
+		// body: JSON.stringify(id),
+	});
+	const json = await dogdelete.json();
+	return json;
+};
+
 export const login = (kennel) => {
 	const kennelLog = fetch(`${BASE_URL}/login`, {
 		method: 'POST',

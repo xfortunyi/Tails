@@ -3,18 +3,35 @@ import { useState } from 'react';
 import { createDog } from './../services/apiService';
 import { useParams } from 'react-router-dom';
 import { storage } from './../services/firebase';
-import { ref, uploadBytes } from 'firebase/storage';
+import { ref, uploadBytes, getDownloadURL } from 'firebase/storage';
 import { v4 } from 'uuid';
 
 function DogForm({ setKennelData }) {
 	const [imageUpload, setImageUpload] = useState(null);
+	const [url, setUrl] = useState(null);
+	const [name, setName] = useState('');
+	const [breed, setBreed] = useState('');
+	const [size, setSize] = useState('');
+	const [age, setAge] = useState('');
+	const [description, setDescription] = useState('');
 
-	const uploadImage = () => {
+	const uploadImage = (e) => {
+		console.log('entering ifiajf');
 		if (imageUpload == null) return;
 		const imageRef = ref(storage, `images/${imageUpload.name + v4()}`);
-		uploadBytes(imageRef, imageUpload).then(() => {
-			alert('Image uploaded');
-		});
+		console.log(imageRef);
+		uploadBytes(imageRef, imageUpload)
+			.then((snapshot) => {
+				snapshot.ref.toString();
+				console.log(snapshot.ref.toString());
+				console.log('here', snapshot);
+				alert('Image uploaded');
+			})
+			.then(() => {
+				getDownloadURL(imageRef).then((url) => {
+					setUrl(url);
+				});
+			});
 	};
 
 	const asyncNewDog = async (newDog) => {
@@ -23,30 +40,35 @@ function DogForm({ setKennelData }) {
 	const { id } = useParams();
 
 	function handleSubmit(e) {
-		e.preventDefault();
+		console.log('submiting');
+
 		const newDog = {
-			name: e.target.name.value,
-			breed: e.target.breed.value,
-			size: e.target.size.value,
-			age: e.target.age.value,
-			description: e.target.description.value,
-			// image: state
+			name: name,
+			breed: breed,
+			size: size,
+			age: age,
+			description: description,
+			image: url,
 			kennelId: id,
 		};
+		console.log(newDog);
 		asyncNewDog(newDog);
 		setKennelData((prev) => {
 			let newState = [...prev.Dogs, newDog];
 			return { ...prev, Dogs: newState };
 		});
-		e.target.reset();
+		// e.target.reset();
 	}
 
 	return (
-		<form className="form" onSubmit={handleSubmit}>
+		<div className="form">
 			Add a new Dog
 			<div className="containerForm">
 				<label className="labels">Name</label>
 				<input
+					onChange={(e) => {
+						setName(e.target.value);
+					}}
 					className="inputs"
 					type="text"
 					name="name"
@@ -54,19 +76,36 @@ function DogForm({ setKennelData }) {
 				></input>
 				<label className="labels">Breed</label>
 				<input
+					onChange={(e) => {
+						setBreed(e.target.value);
+					}}
 					className="inputs"
 					type="text"
 					name="breed"
 					placeholder="Insert a breed.."
 				></input>
 				<label className="labels">Size</label>
-				<select className="inputs" type="text" name="size">
+				<select
+					className="inputs"
+					type="text"
+					name="size"
+					onChange={(e) => {
+						setSize(e.target.value);
+					}}
+				>
 					<option>Small</option>
 					<option>Medium</option>
 					<option>Large</option>
 				</select>
 				<label className="labels">Age</label>
-				<select className="inputs" type="text" name="age">
+				<select
+					className="inputs"
+					type="text"
+					name="age"
+					onChange={(e) => {
+						setAge(e.target.value);
+					}}
+				>
 					<option>1</option>
 					<option>2</option>
 					<option>3</option>
@@ -85,6 +124,9 @@ function DogForm({ setKennelData }) {
 				</select>
 				<label className="labels">Description</label>
 				<input
+					onChange={(e) => {
+						setDescription(e.target.value);
+					}}
 					className="inputs"
 					type="text"
 					name="description"
@@ -99,12 +141,25 @@ function DogForm({ setKennelData }) {
 						setImageUpload(event.target.files[0]);
 					}}
 				/>
-				{/* <button onClick={uploadImage}>Upload image</button> */}
+				<button
+					onClick={() => {
+						uploadImage();
+					}}
+					type="button"
+				>
+					Upload image
+				</button>
 			</div>
-			<button className="btnNewDog" type="submit" onClick={uploadImage}>
+			<button
+				className="btnNewDog"
+				type="submit"
+				onClick={() => {
+					handleSubmit();
+				}}
+			>
 				Submit
 			</button>
-		</form>
+		</div>
 	);
 }
 

@@ -48,7 +48,9 @@ function KennelInfo({ kennelInfo, setKennelInfo, setInfo }) {
 									<div className="dogSize">{dog.size}</div>
 									<div className="dogAge">{dog.age}</div>
 								</div>
-								<div>Picture?</div>
+								<div className="dogMapPictureMap">
+									<img className="dogMapPicture" src={dog.image} />
+								</div>
 							</section>
 						))}
 					</div>
