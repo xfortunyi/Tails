@@ -342,22 +342,15 @@
 }
 
 .dogMapPictureMap {
-	/* display: flex; */
-	/* flex-direction: row; */
-
-	width: 200px;
-
-	margin-top: 20px;
-	/* margin-top: 80px; */
-	border: 1px red solid;
+	width: 250px;
+	margin-left: 60px;
+	margin-top: 15px;
 }
 
 .dogMapPicture {
 	height: 150px;
-	width: 150px;
-
+	width: 250px;
 	margin-right: 20px;
-	border: 1px red solid;
 }
 
 .kennelDogs {
