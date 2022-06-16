@@ -3,7 +3,7 @@ require('dotenv').config();
 
 const USER = 'root';
 const NAME = 'tails';
-const PASSWORD = 'Benages01+';
+const PASSWORD = 'password';
 
 const config = {
 	host: 'localhost',
