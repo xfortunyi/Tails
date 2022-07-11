@@ -1,6 +1,15 @@
 # Tails
+
+<div align=center>
+<img src='./client/src/assets/title1.png'>
+</div>
+
 Welcome to Tails. A web application to adopt dogs according to your location that you can filter by age, size or breed.
 
+
+<div align=center>
+<img src='./client/src/assets/title2.png'>
+</div>
 
 # Tech stack
 The app runs on React on the front-end where is used Leaflet library for the map. 
@@ -37,3 +46,4 @@ Also refactor the code to Typescript and finally deploy the app.
 
 # Author
 <a href=www.github/xfortunyi.com> Xavi Fortuny </a>
+
